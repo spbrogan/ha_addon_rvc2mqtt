@@ -12,49 +12,16 @@ logger:
   version: 1
   handlers:
     debug_console_handler:
-      level: INFO
+      level: DEBUG
       class: logging.StreamHandler
       formatter: brief
       stream: ext://sys.stdout
-    debug_file_handler:
-      level: DEBUG
-      class: logging.FileHandler
-      formatter: default
-      filename: /home/pi/config/test_rvc_debug_nd.log
-      mode: w
-    unhandled_file_handler:
-      level: DEBUG
-      class: logging.FileHandler
-      formatter: time-only
-      filename: /home/pi/config/test_unhandled_rvc_nd.log
-      mode: w
-    rvc_bus_trace_handler:
-      level: DEBUG
-      class: logging.FileHandler
-      formatter: time-only
-      filename: /home/pi/config/RVC_FULL_BUS_TRACE.log
-      mode: w
-
   loggers: 
     '': # root logger
       handlers: 
         - debug_console_handler
-        - debug_file_handler
       level: DEBUG
       propagate: False
-
-    'unhandled_rvc':  # unhandled messages
-      handlers:
-        - unhandled_file_handler
-      level: DEBUG
-      propagate: False
-
-    'rvc_bus_trace':  # all bus messages
-      handlers:
-        - rvc_bus_trace_handler
-      level: DEBUG
-      propagate: False
-
   formatters:
     brief:
       format: '%(message)s'
@@ -136,11 +103,6 @@ map:
     type: tank_warmer
     instance: 35
     instance_name: fresh water tank heater
-
-
-
-
-
 
 #
 # MQTT specific settings
