@@ -1,6 +1,6 @@
 # RVC2MQTT Home Assistant add-on repository
 
-This repository provides a Home Assistant for the RVC2MQTT project.
+This repository provides a Home Assistant Add-on for the RVC2MQTT project.
 
 Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 

@@ -2,11 +2,7 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH
-RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
+COPY ./default_config.yaml .
+RUN pip3 install --no-cache-dir git+https://github.com/spbrogan/rvc2mqtt.git@main_split#egg=rvc2mqtt
 
-# Copy root filesystem
-COPY rootfs /
+CMD rvc2mqtt -c default_config.yaml

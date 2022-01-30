@@ -10,9 +10,6 @@ arch:
   - aarch64
   - amd64
   - i386
-init: false
-options:
-  message: "Hello world..."
-schema:
-  message: "str?"
-image: "ghcr.io/spbrogan/{arch}-addon-rvc2mqtt"
+startup: services
+host_network: true
+#image: "ghcr.io/spbrogan/{arch}-addon-rvc2mqtt"
