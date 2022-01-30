@@ -3,7 +3,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 COPY ./default_config.yaml .
-RUN apk add --no-cache python3 py3-pip
+RUN apk add --no-cache python3 py3-pip git
 RUN pip3 install --no-cache-dir git+https://github.com/spbrogan/rvc2mqtt.git@main_split#egg=rvc2mqtt
 
 CMD rvc2mqtt -c default_config.yaml
