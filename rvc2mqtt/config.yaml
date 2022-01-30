@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: RVC2MQTT add-on
-version: "1.0.1"
+version: "1.0.2"
 slug: rvc2mqtt
 description: RVC2MQTT add-on
 url: "https://github.com/spbrogan/ha_addon_rvc2mqtt/tree/main/rvc2mqtt"
