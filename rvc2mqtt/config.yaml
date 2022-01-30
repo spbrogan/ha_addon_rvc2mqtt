@@ -12,4 +12,5 @@ arch:
   - i386
 startup: services
 host_network: true
+privileged: ["NET_ADMIN"]
 image: "ghcr.io/spbrogan/{arch}-addon-rvc2mqtt"
