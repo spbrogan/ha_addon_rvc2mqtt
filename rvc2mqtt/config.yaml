@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: RVC2MQTT add-on
-version: "1.0.2"
+version: "1.0.3"
 slug: rvc2mqtt
 description: RVC2MQTT add-on
 url: "https://github.com/spbrogan/ha_addon_rvc2mqtt/tree/main/rvc2mqtt"
@@ -14,3 +14,23 @@ startup: services
 host_network: true
 privileged: ["NET_ADMIN"]
 image: "ghcr.io/spbrogan/{arch}-addon-rvc2mqtt"
+services:
+  - mqtt:want
+
+options:
+  interface_name: "can0"
+  config_file_path: "default_config.yaml"  
+  mqtt: {}
+
+schema:
+  interface_name: str?
+  config_file_path: str
+  mqtt:
+    host: str?
+    port: port?
+    ca: str?
+    cert: str?
+    key: str?
+    username: str?
+    password: password?
+    client_id: str?
