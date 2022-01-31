@@ -50,6 +50,7 @@ fi
 ## Get the values from the user config options.
 if bashio::config.exists 'interface_name'; then
     export "CAN_INTERFACE_NAME=$(bashio::config 'interface_name')"
+    interface=$(bashio::config 'interface_name')
     bashio::log.info "Starting Up CanBus interface ${interface}"
     exec ip link set ${interface} type can bitrate 250000
     exec ip link set ${interface} up
