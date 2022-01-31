@@ -1,47 +1,8 @@
-#
-# define the name of the can device
-#
-interface:
-  name: can0
 
-#
-# Logging info
-# See https://docs.python.org/3/library/logging.config.html#logging-config-dictschema
-#
-logger:
-  version: 1
-  handlers:
-    debug_console_handler:
-      level: DEBUG
-      class: logging.StreamHandler
-      formatter: brief
-      stream: ext://sys.stdout
-  loggers: 
-    '': # root logger
-      handlers: 
-        - debug_console_handler
-      level: DEBUG
-      propagate: False
-  formatters:
-    brief:
-      format: '%(message)s'
-    time-only:
-      format: '%(asctime)s   %(message)s'
-      datefmt: '%d %H:%M:%S'
-    default:
-      format: '%(asctime)s %(levelname)-8s %(name)-15s %(message)s'
-      datefmt: '%Y-%m-%d %H:%M:%S'
-
-#
-# External Plugins for device entity
-#
-plugins:
-  paths:
-    - /
 #
 # RV - floorplan
 #
-map: 
+floorplan: 
   - dgn: 1FFBD
     instance: 1
     group: '00000000'
@@ -103,12 +64,4 @@ map:
     type: tank_warmer
     instance: 35
     instance_name: fresh water tank heater
-
-#
-# MQTT specific settings
-#
-mqtt:
-  broker:   100.64.39.110:9883
-  username: rvc
-  password: c0ugar
   

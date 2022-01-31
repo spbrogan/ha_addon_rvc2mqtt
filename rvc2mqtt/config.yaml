@@ -19,12 +19,21 @@ services:
 
 options:
   interface_name: "can0"
-  config_file_path: "default_config.yaml"  
+  floorplan_file_path: "default_config.yaml"  
   mqtt: {}
+  floorplan:
+    - name: DC_LOAD_STATUS
+      type: tank_warmer
+      instance: 34
+      instance_name: waste tank heater
+    - name: DC_LOAD_STATUS
+      type: tank_warmer
+      instance: 35
+      instance_name: fresh water tank heater
 
 schema:
   interface_name: str?
-  config_file_path: str
+  floorplan_file_path: str
   mqtt:
     host: str?
     port: port?
@@ -34,3 +43,10 @@ schema:
     username: str?
     password: password?
     client_id: str?
+  floorplan:
+    - dgn: str?
+      name: str?
+      instance: int?
+      group: int?
+      type: str?
+      instance_name: str?
