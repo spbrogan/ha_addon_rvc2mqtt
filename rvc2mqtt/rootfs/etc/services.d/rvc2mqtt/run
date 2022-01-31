@@ -8,7 +8,7 @@
 # Declare variables
 declare interface
 declare floorplan_file_path
-delcare user_floorplan
+declare user_floorplan
 
 declare host
 declare port
